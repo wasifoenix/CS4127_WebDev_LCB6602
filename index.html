@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Character set and mobile-friendly sizing -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your visit to Brunei Darussalam: attractions, culture, food, travel tips and events.">
+  <title>Home | Visit Brunei Darussalam</title>
+
+ 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!--HEADER: logo, menu button, theme button and navigation-->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Visit <span>Brunei</span></a>
+
+      <!-- Menu button (phones only) and dark mode button, in the right corner -->
+      <div class="header-buttons">
+        <button type="button" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+        <button type="button" id="theme-toggle" class="theme-toggle">🌙 Dark mode</button>
+      </div>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main menu">
+        <ul>
+          <li><a href="index.html" class="current" aria-current="page">Home</a></li>
+          <li><a href="discover.html">Discover Brunei</a></li>
+          <li><a href="attractions.html">Attractions</a></li>
+          <li><a href="plan.html">Plan Visit</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+  
+    <section class="hero">
+      <div class="container">
+        <h1>Welcome to Brunei Darussalam</h1>
+        <p>The Abode of Peace</p>
+        <a href="plan.html" class="button">Plan your trip</a>
+      </div>
+    </section>
+
+    <!--INTRODUCTION -->
+    <section>
+      <div class="container">
+        <h2>Discover A Small Country With Big Charm</h2>
+        <p>
+          Brunei Darussalam is a small, peaceful country on the north coast of Island of Borneo,
+          in Southeast Asia. It is known for its calm atmosphere, its warm hospitality and its
+          blend of Malay, Islamic and royal traditions.
+        </p>
+
+        <!-- Simple list of reasons to visit -->
+        <h3>Why visit?</h3>
+        <ul class="tip-list">
+          <li>Beautiful Omar Ali Saifuddien Mosque, reflected in its lake.</li>
+          <li>Ride a boat through Kampong Ayer, the famous water village.</li>
+          <li>Explore the rainforest of Ulu Temburong National Park.</li>
+          <li>Enjoy delicious local food and friendly people.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!--IMAGE SLIDER (interactive feature)-->
+    <section class="section-alt">
+      <div class="container">
+        <h2>Highlights Slideshow</h2>
+
+        <!-- tabindex="0" lets keyboard users focus the slider to use the arrow keys -->
+        <div class="slider" tabindex="0" aria-label="Image slideshow. Use the arrow keys or buttons to change pictures.">
+
+          <!-- Each <figure> is one slide. The first one starts as "active" (visible). -->
+          <figure class="slide active">
+            <img src="mosque.jpg" alt="The golden dome of the Omar Ali Saifuddien Mosque reflected in the water">
+            <figcaption>Omar Ali Saifuddien Mosque, Bandar Seri Begawan</figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="kampong-ayer.jpg" alt="Wooden houses on stilts over the water in Kampong Ayer">
+            <figcaption>Kampong Ayer, the water village</figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="temburong.jpg" alt="Green rainforest and a river in Ulu Temburong National Park">
+            <figcaption>Ulu Temburong National Park</figcaption>
+          </figure>
+        </div>
+
+        <!-- Previous and next buttons are handled in script.js -->
+        <div class="slider-controls">
+          <button type="button" id="prev-slide">&larr; Previous</button>
+          <button type="button" id="next-slide">Next &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!--INTRO VIDEO-->
+    <section>
+      <div class="container">
+        <h2>Watch: A Short Introduction</h2>
+        <p>Tour Brunei Darussalam</p>
+
+        <div class="video-box">
+          <!-- Video file: intro.mp4 -->
+          <!-- autoplay = starts by itself, muted = no sound at first, loop = keeps playing, playsinline = plays on phones, controls = lets visitors unmute or pause -->
+          <video autoplay muted loop playsinline controls aria-label="Short video introducing Brunei Darussalam">
+            <source src="intro.mp4" type="video/mp4">
+            Sorry, your browser cannot play this video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--Footer with external links-->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Useful links:</p>
+      <ul>
+        <li><a href="https://www.bruneitourism.com/" target="_blank" rel="noopener noreferrer">Official Brunei Tourism website</a></li>
+        <li><a href="https://www.gov.bn/" target="_blank" rel="noopener noreferrer">Brunei Government portal</a></li>
+        <li><a href="https://www.tourism.gov.bn/" target="_blank" rel="noopener noreferrer">Tourism Brunei</a></li>
+      </ul>
+      <p>&copy; 2026 Ministry of Tourism, Brunei Darussalam</p>
+    </div>
+  </footer>
+
+  <!--Our JavaScript file. "defer" means it runs after the page is loaded -->
+  <script src="script.js" defer></script>
+</body>
+</html>

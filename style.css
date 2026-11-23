@@ -1,0 +1,397 @@
+
+
+/*Colors*/
+/* Saved once here, then used on every page with var(--name) */
+:root {
+  --color-primary: #0b6e72;       /* deep teal: headings, links and buttons */
+  --color-header: #0b6e72;        /* deep teal: header and banners */
+  --color-footer: #084e52;        /* darker teal: footer */
+  --color-accent: #f2b705;        /* royal gold: highlights */
+  --color-bg: #faf7f0;            /* warm sand: page background */
+  --color-text: #1f2d33;          /* dark slate: main text */
+  --color-card: #ffffff;          /* white: cards and boxes */
+  --color-border: #e5dfd2;        /* thin lines around boxes */
+  --color-button-text: #ffffff;   /* text on teal buttons */
+  --color-error: #c62828;         /* red: form errors */
+}
+
+/* Dark mode colours. script.js adds the class "dark-mode" to <body>. */
+body.dark-mode {
+  --color-primary: #4cc3bd;
+  --color-header: #0d3b3e;
+  --color-footer: #082a2c;
+  --color-bg: #10191d;
+  --color-text: #eef3f4;
+  --color-card: #1a272c;
+  --color-border: #2c3d43;
+  --color-button-text: #10191d;
+  --color-error: #ff8a80;
+}
+
+/*Basics*/
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Pictures fill their box. object-fit cover stops them stretching. */
+img, video {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+a { color: var(--color-primary); }
+
+h2 {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+/* Keeps the content in the middle of the page */
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section { padding: 40px 0; }
+.section-alt { background-color: var(--color-card); }   /* every second section is white */
+
+/*Keyboard Users*/
+/* A thick outline shows where you are when you press Tab */
+a:focus, button:focus, input:focus, select:focus, textarea:focus, .slider:focus {
+  outline: 3px solid var(--color-text);
+}
+
+/* Gold is easier to see on the teal header and footer */
+.site-header a:focus, .site-header button:focus, .site-footer a:focus {
+  outline-color: var(--color-accent);
+}
+
+/* The "Skip to main content" link stays off screen until you press Tab */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  background-color: var(--color-accent);
+  color: black;
+  padding: 10px;
+}
+.skip-link:focus { left: 10px; }
+
+/*Header And Menu*/
+.site-header {
+  background-color: var(--color-header);
+  position: sticky;               /* stays at the top when scroll */
+  top: 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+/* Menu button and dark mode button side by side, in the right corner */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;              /* pushes the buttons to the right */
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+.logo span { color: var(--color-accent); }   /* the word "Brunei" is gold */
+
+/* Dark mode button and Menu button */
+.theme-toggle, .menu-toggle {
+  background-color: white;
+  color: #084e52;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+/* On phones the menu is hidden until the Menu button is pressed */
+.main-nav {
+  width: 100%;
+  display: none;
+}
+.main-nav.open { display: block; }
+
+.main-nav ul {
+  list-style: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.main-nav a {
+  display: block;
+  padding: 8px 14px;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+}
+.main-nav a:hover { text-decoration: underline; }
+
+
+/* The page you are on is gold */
+.main-nav a.current {
+  background-color: var(--color-accent);
+  color: black;
+  font-weight: bold;
+}
+
+/* Banners */
+/* Big picture at the top of the home page */
+.hero {
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 90px 0;
+  text-shadow: 2px 2px 4px black;   /* makes the white text easier to read */
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin: 0 0 10px 0;
+}
+
+/* Gold "Plan your trip" button */
+.button {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: black;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* Teal banner at the top of the other pages */
+.page-banner {
+  background-color: var(--color-header);
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  border-bottom: 4px solid var(--color-accent);
+}
+
+.page-banner h1 {
+  margin: 0;
+  font-size: 2.1rem;
+}
+.page-banner p { margin: 8px 0 0 0; }
+
+/*Buttons*/
+/* The slideshow, map and form buttons all look the same */
+.slider-controls button, .map-button, .form-button {
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* They turn gold when you point at them */
+.slider-controls button:hover, .map-button:hover, .form-button:hover {
+  background-color: var(--color-accent);
+  color: black;
+}
+
+/* Slide show and Video Home Page Only ===== */
+.slider, .slider-controls, .video-box {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Only the slide with the class "active" is shown */
+.slide {
+  display: none;
+  margin: 0;
+}
+.slide.active { display: block; }
+
+.slide img {
+  height: 380px;
+  border-radius: 10px;
+}
+
+.slide figcaption {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Previous button on the left, Next button on the right */
+.slider-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/*Carsds */
+/* 1 card per row on phones, 2 on tablets, 3 on computers*/
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;               /* keeps the picture inside the round corners */
+}
+.card img { height: 200px; }
+.card-body { padding: 16px 18px; }
+
+.card-body h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+/* Maps Attraction Page */
+/* The map is hidden until script.js adds the class "open" */
+.map-box { display: none; }
+.map-box.open { display: block; }
+s
+.map-box iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  margin-top: 12px;
+}
+
+/* Texts, List Tables */
+/* Text and picture: stacked on phones, side by side on bigger screens */
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.two-columns img, video { border-radius: 10px; }
+
+.tip-list li { margin-bottom: 8px; }
+
+/* Box with a gold line on the left, for important notes */
+.highlight-box {
+  background-color: var(--color-card);
+  border-left: 6px solid var(--color-accent);
+  padding: 4px 20px;
+  margin: 20px 0;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-card);
+}
+
+.info-table th, .info-table td {
+  border: 1px solid var(--color-border);
+  padding: 10px;
+  text-align: left;
+}
+
+.info-table th {
+  background-color: var(--color-header);
+  color: white;
+}
+
+/*Contact Form*/
+.form-group { margin-bottom: 18px; }
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #6b7a80;      /* grey that shows up in light and dark mode */
+  border-radius: 6px;
+  background-color: var(--color-card);
+  color: var(--color-text);
+}
+
+/* Red border on a box with a mistake (script.js sets aria-invalid="true") */
+[aria-invalid="true"] { border: 2px solid var(--color-error); }
+
+.error-message {
+  color: var(--color-error);
+  margin: 4px 0 0 0;
+}
+
+/* Green "thank you" message. script.js shows it after a good submit. */
+.success-message {
+  display: none;
+  background-color: #e6f4ea;
+  color: #1b5e20;
+  padding: 12px;
+  border-radius: 6px;
+}
+.success-message.show { display: block; }
+
+/*Footer*/
+.site-footer {
+  background-color: var(--color-footer);
+  color: white;
+  padding: 30px 0;
+}
+.site-footer a { color: var(--color-accent); }
+
+/* TABLETS (768px and wider)*/
+@media (min-width: 768px) {
+  .hero h1 { font-size: 3.2rem; }
+
+  /* 2 cards per row, and text and picture side by side */
+  .card-grid, .two-columns { grid-template-columns: 1fr 1fr; }
+}
+
+/* Computers (1024px and wider)*/
+@media (min-width: 1024px) {
+  
+  /* The menu fits across the top, so the Menu button is not needed */
+  .menu-toggle { display: none; }
+
+  .main-nav {
+    display: block;
+    width: auto;
+    margin-left: auto;            /* pushes the menu links to the right */
+  }
+
+  .main-nav ul {
+    display: flex;
+    margin: 0;
+  }
+
+  /* order: 1 moves the dark mode button after the menu links, into the right corner */
+  .header-buttons {
+    order: 1;
+    margin-left: 12px;
+  }
+
+  .card-grid { grid-template-columns: 1fr 1fr 1fr; }   /* 3 cards per row */
+}
